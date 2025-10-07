@@ -1,0 +1,28 @@
+#    ❓ DEĞERLENDİRME SORULARI
+#    "10" + 5 işlemi neden hata verir? Nasıl düzeltilir?
+"     çünkü biri string diğeri int formatında olduğu için toplama yapılamaz eğerki yazı olarak birleştirmek istiyor isek:"
+print(10+str(5)) #burada sonuç 105 çıkar
+#"      eğer toplama işlemi yapılacak ise: "
+print(int(10)+5) #burada sonuç 15 tir
+
+
+
+
+#    0.1 + 0.2 == 0.3 ifadesi neden False döner?
+
+#    "Ondalıklı sayılar bilgisayarlarda ikili sistemde depolanır. 0.1 ve 0.2 gibi bazı ondalıklı sayılar ikili sistemde sonsuz tekrar eden kesirler olarak ifade edilir: "
+
+
+print(f"0.1 gerçek değeri: {0.1:.20f}")                 #0.1 gerçek değeri: 0.10000000000000000555
+print(f"0.2 gerçek değeri: {0.2:.20f}")                 #0.2 gerçek değeri: 0.20000000000000001110
+print(f"0.1 + 0.2 gerçek değeri: {(0.1 + 0.2):.20f}")   #0.1 + 0.2 gerçek değeri: 0.30000000000000004441
+print(f"0.3 gerçek değeri: {0.3:.20f}")                 #0.3 gerçek değeri: 0.29999999999999998890
+
+
+
+#   and ve or operatörlerinin öncelik sırası nedir?
+
+and or dan daha öncedir
+
+#    input() fonksiyonu neden her zaman string döndürür?
+ çünkü input girdisi sayısal işşlemsel veya harflr yazılsa bile stringde hata vermez hatayı engeller bu durum
