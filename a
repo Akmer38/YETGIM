@@ -1,0 +1,65 @@
+"""
+
+Soru: Arabalar Sınıfı Uygulaması
+📌 Görev Tanımı:
+
+Aşağıda bir sınıf yapısının temel iskeleti verilmiştir.
+Bu sınıfı kullanarak bir araba nesnesi oluşturacak, bilgilerini kullanıcıdan alacak ve ekrana yazdıracaksınız.
+
+💻 1. Adım — Sınıfı Tanımlayın
+
+Bir arabalar isimli sınıf oluşturun.
+Bu sınıfın yapıcı (constructor) metodu _init_ şu üç parametreyi alsın:
+
+marka
+
+model
+
+yil
+
+Bu parametreleri sınıf içindeki değişkenlere (self.marka, self.model, self.yil) atayın.
+
+🧩 2. Adım — Bilgi Gösterme Metodu
+
+bilgileri_goster() isimli bir metot tanımlayın.
+Bu metot çalıştığında, arabanın tüm bilgilerini aşağıdaki formatta ekrana yazdırsın:
+
+arabanin markasi : [marka bilgisi]
+arabanin modeli  : [model bilgisi]
+arabanin piyasaya cikis tarihi : [yil bilgisi]
+
+⌨ 3. Adım — Kullanıcıdan Bilgi Alma
+
+Kullanıcıdan sırasıyla şu bilgileri alın:
+
+Araba markası
+
+Araba modeli
+
+Araba çıkış yılı
+
+🧱 4. Adım — Nesne Oluşturma
+
+İki farklı araba nesnesi oluşturun:
+
+İlki sabit değerlerle ("toyota", "corolla", "2000")
+
+İkincisi kullanıcıdan alınan bilgilerle.
+
+📤 5. Adım — Bilgileri Göster
+
+Her iki araba nesnesi için de bilgileri_goster() metodunu çağırarak bilgileri ekrana yazdırın.
+
+🎯 Beklenen Çıktı Örneği:
+lutfen araba markanizi girin : honda
+lutfen arabanizin modelini  girin : civic
+lutfen arabanizin cikis tarihini girin : 2018
+
+arabanin markasi : toyota 
+arabanin modeli  : corolla
+arabanin piyasaya cikis tarihi : 2000
+
+arabanin markasi : honda 
+arabanin modeli  : civic
+arabanin piyasaya cikis tarihi : 2018
+"""
