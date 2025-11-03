@@ -1,4 +1,3 @@
-<img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/a576e934-7af6-460c-bfcc-8c3317d6705f" />Film Kütüphanesi - Flask Projesi
 Kişisel film koleksiyonunuzu yönetmek için Python, Flask, OOP ve SQLite kullanılarak oluşturulmuş tam özellikli bir web uygulaması.
 
 Projenin ana sayfasından bir görünüm:
@@ -50,3 +49,5 @@ Backend: Python, Flask
 Database: SQLite
 
 Frontend: HTML
+
+
