@@ -44,6 +44,7 @@ Modern Arayüz: Bootstrap 5 ile oluşturulmuş, mobil uyumlu (responsive) ve tem
 Flash Mesajları: Film ekleme, silme, güncelleme gibi işlemler için kullanıcıyı bilgilendiren bildirimler.
 
 🛠️ Kullanılan Teknolojiler
+
 Backend: Python, Flask
 
 Database: SQLite
