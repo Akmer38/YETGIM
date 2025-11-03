@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}İstatistikler{% endblock %}
+
+{% block content %}
+<h1 class="text-white mb-4">
+    <i class="fas fa-chart-bar"></i> Film Koleksiyonu İstatistikleri
+</h1>
+
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-film fa-3x text-primary mb-2"></i>
+                <h3>{{ stats.toplam }}</h3>
+                <p class="text-muted mb-0">Toplam Film</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-check-circle fa-3x text-success mb-2"></i>
+                <h3>{{ stats.izlenen }}</h3>
+                <p class="text-muted mb-0">İzlenen</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-clock fa-3x text-warning mb-2"></i>
+                <h3>{{ stats.izlenmedi }}</h3>
+                <p class="text-muted mb-0">İzlenmedi</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-star fa-3x text-warning mb-2"></i>
+                <h3>{{ stats.ortalama_puan }}</h3>
+                <p class="text-muted mb-0">Ortalama Puan</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5><i class="fas fa-trophy"></i> En İyi Film</h5>
+            </div>
+            <div class="card-body text-center py-4">
+                <h4>{{ stats.en_iyi_film }}</h4>
+                <div class="rating-stars">
+                    {% for i in range(10) %}
+                        {% if i < stats.en_iyi_puan %}
+                            <i class="fas fa-star fa-2x"></i>
+                        {% else %}
+                            <i class="far fa-star fa-2x"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <h3 class="mt-2">{{ stats.en_iyi_puan }}/10</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5><i class="fas fa-tags"></i> Türlere Göre Dağılım</h5>
+            </div>
+            <div class="card-body">
+                {% if turler %}
+                    <ul class="list-group list-group-flush">
+                        {% for tur, sayi in turler.items() %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ tur }}
+                            <span class="badge bg-primary rounded-pill">{{ sayi }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted text-center mb-0">Henüz tür bilgisi yok</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5>İzleme İlerlemesi</h5>
+                <div class="progress" style="height: 30px;">
+                    {% set progress = (stats.izlenen / stats.toplam * 100) if stats.toplam > 0 else 0 %}
+                    <div class="progress-bar bg-success" role="progressbar" 
+                         style="width: {{ progress }}%;"
+                         aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100">
+                        {{ "%.1f"|format(progress) }}%
+                    </div>
+                </div>
+                <p class="text-muted mt-2 mb-0">
+                    Koleksiyonunuzun <strong>{{ "%.1f"|format(progress) }}%</strong>'ini izlediniz!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('index') }}" class="btn btn-light btn-lg">
+        <i class="fas fa-arrow-left"></i> Ana Sayfaya Dön
+    </a>
+</div>
+{% endblock %}

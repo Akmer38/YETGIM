@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Film Koleksiyonum{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1 class="text-white">
+            <i class="fas fa-film"></i> Film Koleksiyonum
+        </h1>
+    </div>
+    <div class="col-md-4">
+        <form method="GET" action="{{ url_for('index') }}">
+            <div class="input-group">
+                <input type="text" name="arama" class="form-control" 
+                       placeholder="Film ara..." value="{{ arama }}">
+                <button class="btn btn-light" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if filmler %}
+    <div class="row">
+        {% for film in filmler %}
+        <div class="col-md-6 col-lg-4 movie-card">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="card-title">{{ film.baslik }}</h5>
+                        <span class="badge {{ 'watched-badge' if film.izlendi else 'unwatched-badge' }}">
+                            {{ 'İzlendi ✓' if film.izlendi else 'İzlenmedi' }}
+                        </span>
+                    </div>
+                    
+                    <p class="card-text text-muted mb-2">
+                        <i class="fas fa-user-tie"></i> {{ film.yonetmen }}<br>
+                        <i class="fas fa-calendar"></i> {{ film.yil }}<br>
+                        <i class="fas fa-tag"></i> {{ film.tur or 'Belirtilmemiş' }}
+                    </p>
+                    
+                    <div class="mb-3">
+                        <span class="rating-stars">
+                            {% for i in range(10) %}
+                                {% if i < film.puan %}
+                                    <i class="fas fa-star"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </span>
+                        <span class="text-muted ms-2">{{ film.puan }}/10</span>
+                    </div>
+                    
+                    {% if film.notlar %}
+                    <p class="card-text">
+                        <small class="text-muted"><i class="fas fa-sticky-note"></i> {{ film.notlar[:50] }}{% if film.notlar|length > 50 %}...{% endif %}</small>
+                    </p>
+                    {% endif %}
+                    
+                    <div class="btn-group w-100 mt-2" role="group">
+                        <a href="{{ url_for('izlendi_degistir', film_id=film.id) }}" 
+                           class="btn btn-sm btn-outline-success" title="İzlendi/İzlenmedi">
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a href="{{ url_for('film_duzenle', film_id=film.id) }}" 
+                           class="btn btn-sm btn-outline-primary" title="Düzenle">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{{ url_for('film_sil', film_id=film.id) }}" 
+                           class="btn btn-sm btn-outline-danger" 
+                           onclick="return confirm('Bu filmi silmek istediğinden emin misin?')"
+                           title="Sil">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="card">
+        <div class="card-body text-center py-5">
+            <i class="fas fa-film fa-4x text-muted mb-3"></i>
+            <h3>{% if arama %}Arama sonucu bulunamadı{% else %}Henüz film eklemediniz{% endif %}</h3>
+            <p class="text-muted">İlk filminizi ekleyerek başlayın!</p>
+            <a href="{{ url_for('film_ekle') }}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Film Ekle
+            </a>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

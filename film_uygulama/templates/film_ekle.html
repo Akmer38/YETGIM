@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Film Ekle{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3><i class="fas fa-plus-circle"></i> Yeni Film Ekle</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="baslik" class="form-label">Film Başlığı *</label>
+                        <input type="text" class="form-control" id="baslik" name="baslik" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="yonetmen" class="form-label">Yönetmen</label>
+                            <input type="text" class="form-control" id="yonetmen" name="yonetmen">
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="yil" class="form-label">Yıl</label>
+                            <input type="number" class="form-control" id="yil" name="yil" 
+                                   min="1900" max="2030">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="tur" class="form-label">Tür</label>
+                            <select class="form-control" id="tur" name="tur">
+                                <option value="">Seçiniz...</option>
+                                <option value="Aksiyon">Aksiyon</option>
+                                <option value="Komedi">Komedi</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Korku">Korku</option>
+                                <option value="Bilim Kurgu">Bilim Kurgu</option>
+                                <option value="Romantik">Romantik</option>
+                                <option value="Animasyon">Animasyon</option>
+                                <option value="Gerilim">Gerilim</option>
+                                <option value="Macera">Macera</option>
+                                <option value="Belgesel">Belgesel</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="puan" class="form-label">Puan (0-10)</label>
+                            <input type="number" class="form-control" id="puan" name="puan" 
+                                   min="0" max="10" step="0.1" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="notlar" class="form-label">Notlar</label>
+                        <textarea class="form-control" id="notlar" name="notlar" rows="3" 
+                                  placeholder="Film hakkında düşünceleriniz..."></textarea>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="izlendi" name="izlendi">
+                        <label class="form-check-label" for="izlendi">
+                            Bu filmi izledim
+                        </label>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-save"></i> Film Ekle
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> İptal
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
