@@ -13,27 +13,27 @@ Proje, Nesne Yönelimli Programlama (OOP) prensipleri kullanılarak modüler bir
 ✨ Temel Özellikler
 Tam CRUD İşlevselliği:
 
-Create: Yeni filmler ekle (Başlık, Yönetmen, Yıl, Tür, Puan, Notlar).
+-Create: Yeni filmler ekle (Başlık, Yönetmen, Yıl, Tür, Puan, Notlar).
 
-Read: Tüm filmleri ana sayfada listele.
+-Read: Tüm filmleri ana sayfada listele.
 
-Update: Mevcut filmlerin tüm bilgilerini düzenle.
+-Update: Mevcut filmlerin tüm bilgilerini düzenle.
 
-Delete: Filmleri koleksiyondan kalıcı olarak sil.
+-Delete: Filmleri koleksiyondan kalıcı olarak sil.
 
-İzlendi Takibi: Filmleri tek bir tıkla "İzlendi" veya "İzlenmedi" olarak işaretleyin.
+-İzlendi Takibi: Filmleri tek bir tıkla "İzlendi" veya "İzlenmedi" olarak işaretleyin.
 
 İstatistik Sayfası:
 
-Toplam film sayısı
+-Toplam film sayısı
 
-Toplam izlenen film
+-Toplam izlenen film
 
-Toplam izlenmeyen film
+-Toplam izlenmeyen film
 
-Koleksiyondaki filmlerin puan ortalaması
+-Koleksiyondaki filmlerin puan ortalaması
 
-En çok eklenen (favori) film türü
+-En çok eklenen (favori) film türü
 
 Arama Fonksiyonu: Film başlığına göre koleksiyon içinde anlık arama yapın.
 
